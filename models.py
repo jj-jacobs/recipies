@@ -1,6 +1,6 @@
-from flask import flash
+from flask import flash, session
 from sqlalchemy.sql import func
-from config import db, bcrypt
+from config import db, bcrypt, re
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -11,20 +11,21 @@ class User(db.Model):
     confirm_pass = db.Column(db.String(255))
     @classmethod
     def validate_user(cls, user_data):
+        print(user_data)
         is_valid = True
-        if len(user_data['fn']) < 1:
+        if len(user_data["fn"]) < 1:
             is_valid = False
             flash("Please provide a first name")
         if len(user_data["ln"]) < 1:
             is_valid = False
             flash("Please provide a last name")
-        if not EMAIL_REGEX.match(user_data["em"]):
-            is_valid = False
-            flash("Please provide a valid email")
+        # if not EMAIL_REGEX.match(user_data["em"]):
+        #     is_valid = False
+        #     flash("Please provide a valid email")
         if len(user_data["pw"]) < 8:
             is_valid = False
             flash("Password should be at least 8 characters")
-        if user_data["pw"] != user_data["cpw"]:
+        if user_data["pw"] != user_data["confirm_pass"]:
             is_valid = False
             flash("Passwords do not match")
         return is_valid

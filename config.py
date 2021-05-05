@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
+import re
 app = Flask(__name__)
 app.secret_key = "quiet you might piss somebody off"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///recipies.db"
