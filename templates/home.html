@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Recipies R Us</h1>
+        <div class="register">
+            
+            <h2>Register</h2>
+            <form action="/register" method="POST" name="register">
+                <p>First name:<input type="text" name="fn"></p>
+                <p>Last name:<input type="text" name="ln"></p>
+                <p>Email:<input type="text" name="em"></p>
+                <p>Password:<input type="text" name="pw"></p>
+                <p>Confirm Password:<input type="text" name="confirm_pass"></p>
+                <p><input type="submit" name="register" value="register"></p>
+            </form>
+
+        </div>
+        <div class="login">
+            <h2>Login</h2>
+            <form action="/login" method="POST" name="login">
+                <p>Email:<input type="text" name="log_email"></p>
+                <p>Password:<input type="text" name="log_pass"></p>
+                <input type="submit" name="login_btn" value="login">
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
